@@ -1,0 +1,55 @@
+<!-- home.html -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Funding</title>
+
+</head>
+
+<body>
+
+<h1>Welcome to the Funding Page</h1>
+
+<a href="{% url 'home' %}">Go to Home Page</a>
+
+
+<!-- Investment Form -->
+
+<h2>Record Investment</h2>
+
+<form action="{% url 'funding' %}" method="POST">
+
+{% csrf_token %}
+
+<label for="member_name">Member Name:</label>
+
+<input type="text" id="member_name" name="member_name" required><br>
+
+
+<label for="member_cpm">Member CPM:</label>
+
+<input type="text" id="member_cpm" name="member_cpm" required><br>
+
+
+<label for="investment">Investment Amount:</label>
+
+<input type="number" id="investment" name="investment" required><br>
+<label for="investment">Investment Date:</label>
+
+<input type="date" id="investment" name="investment" required><br>
+
+<button type="submit">Record Investment</button>
+
+</form>
+
+</body>
+
+</html>
