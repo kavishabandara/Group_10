@@ -1,0 +1,16 @@
+<html>
+<h2>Member info</h2>
+<table border="1">
+<th>Date</th><th>Investemnt</th>
+{% for investment in memberinvestment %}
+<tr>
+    <td>{{ investment.investmentdate }}</td>
+    <td>{{ investment.invetsmentamount }}</td>
+</tr>
+{%endfor%}
+<tr>
+    <td><b>Total Investment</b></td>
+    <td>{{ membertotal }}</td>
+  </tr>
+</table>
+</html>

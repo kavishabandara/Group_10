@@ -1,21 +1,19 @@
 <!-- home.html -->
-
+{%extends 'base.html'%}
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
 
 <head>
 
-<meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Funding</title>
+<title>{%block title%}
+    Funding{%endblock%}</title>
 
 </head>
 
 <body>
-
+{%block navigation%}
 <h1>Welcome to the Funding Page</h1>
 
 <a href="{% url 'home' %}">Go to Home Page</a>
@@ -41,15 +39,30 @@
 
 <label for="investment">Investment Amount:</label>
 
-<input type="number" id="investment" name="investment" required><br>
-<label for="investment">Investment Date:</label>
+<input type="number" id="investment" name="investment_amount" required><br>
 
-<input type="date" id="investment" name="investment" required><br>
 
 <button type="submit">Record Investment</button>
 
 </form>
 
+<h2>Investment Sumery</h2>
+<table border="1">
+    <th>Member_name</th><th>Member_Cpm</th><th>Investment Amount</th>
+    {% for member in member_list %}
+    <tr>
+        <td><a href="{% url 'info' member.membername %}">{{ member.membername }}</a></td>
+        <td>{{ member.membercpm }}</td>
+        <td>{{ member.invetsmentamount }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="2">Total Capital</td>
+        <td>{{ overall_total }}</td>
+    </tr>
+
+</table>
+{%endblock%}
 </body>
 
 </html>
